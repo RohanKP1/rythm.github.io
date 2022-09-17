@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Varela+Round&display=swap');
+
+body{
+    background-color: black;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: #101010;
+    color: white;
+}
+
+nav ul li{
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+.brand-logo img{
+    width: 44px;
+    padding: 8px 8px;   
+}
+
+#brand-name{
+  color: #1bdbfc;
+}
+
+#spin {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+#spin:after {
+  content:"";
+  animation: spin 30s linear infinite;
+}
+@keyframes spin {
+  0% { content:"Never";}
+  10% { content:"Gonna";}
+  20% { content:"Give";}
+  30% { content:"You";}
+  40% { content:"Up";}
+  50% { content: "Never"; }
+  60% { content: "Gonna"; }
+  70% { content: "Let"; }
+  80% { content: "You"; }
+  90% { content: "Down"; }
+}
+
+.container{
+    min-height: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    display: grid;
+    background-size: cover;
+    justify-content: space-around;
+}
+
+
+.bottom{
+    position: fixed;
+    height: 130px;
+    width: 100%;
+    background-color: #101010;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+.icons{
+    margin-top: 24px;
+}
+
+.icons i{
+    cursor: pointer;
+}
+
+.songList h1{
+    margin-top: 15px;
+    margin-left: 6px;
+    margin-bottom: 10px;
+}
+
+#myProgressBar{
+    width: 80vw;
+    cursor: pointer;
+    height: 5px;
+    accent-color: #1bdbfc;
+}
+
+.songitemcontainer{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+} 
+
+.songItem{
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 7rem;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    position: relative;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 12px;
+}
+
+.songlistplay{
+    display: flex;
+    bottom: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.songItem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+}
+
+.timestamp{
+    margin: 0 12px;
+}
+
+.timestamp i{
+    margin: 0 12px;
+    cursor: pointer;
+}
+
+.songInfo{
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .songitemcontainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } 
+
+    .songInfo{
+        margin: 10% 10%;
+        display: grid;
+        align-items: center;
+        width: auto;
+        background-color: #101010;
+        color: white;
+        font-family: 'Varela Round', sans-serif;
+        border-radius: 24px;
+        padding: 2px 12px;
+        position: absolute;
+        left: auto;
+        bottom: 8vw;
+    }
+
+    .container{
+        height: 140vh;
+    }
+
+    .bottom{
+        position: fixed;
+        height: 130px;
+        width: 100%;
+        background-color: #101010;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: white;
+        flex-direction: column;
+    }
+}    
