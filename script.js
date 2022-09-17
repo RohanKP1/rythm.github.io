@@ -76,6 +76,26 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
     })
 })
 
+Array.from(document.getElementsByClassName("songItem")).forEach(
+    (element)=>{
+        element.addEventListener('click', ()=>{
+            makeAllPlays();
+            songIndex = parseInt(element.id); 
+            audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
+            masterSongName.innerText = songs[songIndex].songName;
+            audioElemant.currentTime = 0;
+            audioElemant.play(); 
+            masterPlay.classList.remove("fa-play-circle");
+            masterPlay.classList.add("fa-pause-circle");
+            Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
+                if (element.id==String(songIndex)){
+                    element.classList.remove("fa-play-circle");
+                    element.classList.add("fa-pause-circle");
+                }
+            })
+        })
+    }
+)
 
 document.getElementById('next').addEventListener('click',()=>{
     if (songIndex>=7){
