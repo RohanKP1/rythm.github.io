@@ -5,6 +5,8 @@ let masterPlay = document.getElementById("masterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 let masterSongName = document.getElementById("masterSongName");
+let diskName = document.getElementById("disk-name");
+let diskImage = document.getElementById("disk-image");
 
 let songs=[
     {songName:'Zero to Hero', filePath:"Assets/Media/1.mp3", coverPath:"Assets/Images/1.jpg"},
@@ -27,6 +29,7 @@ songItems.forEach((element, i)=>{
 
 masterPlay.addEventListener("click", ()=>{
     if(audioElemant.paused || audioElemant.currentTime<=0){
+        hideContainer();
         audioElemant.play();
         masterPlay.classList.remove("fa-play-circle");
         masterPlay.classList.add("fa-pause-circle");
@@ -38,7 +41,8 @@ masterPlay.addEventListener("click", ()=>{
         })
     }
     else{
-        makeAllPlays()
+        makeAllPlays();
+        showContainer();
         audioElemant.pause();
         masterPlay.classList.remove("fa-pause-circle");
         masterPlay.classList.add("fa-play-circle");
@@ -54,6 +58,30 @@ myProgressBar.addEventListener("change", ()=>{
     audioElemant.currentTime = (myProgressBar.value*audioElemant.duration)/100;
 })
 
+const hideContainer = ()=>{
+    Array.from(document.getElementsByClassName("container")).forEach(
+        (element)=>{
+            element.style.display = 'none';        }
+    )
+    Array.from(document.getElementsByClassName("music-focus")).forEach(
+        (element)=>{
+            element.style.display = 'grid';        }
+    )
+}
+
+const showContainer = ()=>{
+    Array.from(document.getElementsByClassName("music-focus")).forEach(
+        (element)=>{
+            element.style.display = 'none';        }
+    )
+    Array.from(document.getElementsByClassName("container")).forEach(
+        (element)=>{
+            element.style.display = 'grid';        }
+    )
+}
+
+showContainer();
+
 const makeAllPlays = ()=>{
     Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
         element.classList.remove("fa-pause-circle");
@@ -68,7 +96,12 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
         e.target.classList.remove("fa-play-circle");
         e.target.classList.add("fa-pause-circle");
         audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
+        let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
+        diskImage.style.background = coverLocation;
+        diskImage.style.backgroundPosition = "center";
+        diskImage.style.backgroundSize = "cover";
         masterSongName.innerText = songs[songIndex].songName;
+        diskName.innerText = songs[songIndex].songName;
         audioElemant.currentTime = 0;
         audioElemant.play();
         masterPlay.classList.remove("fa-play-circle");
@@ -79,10 +112,15 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
 Array.from(document.getElementsByClassName("songItem")).forEach(
     (element)=>{
         element.addEventListener('click', ()=>{
-            makeAllPlays();
             songIndex = parseInt(element.id); 
+            hideContainer();
             audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
+            let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
+            diskImage.style.background = coverLocation;
+            diskImage.style.backgroundPosition = "center";
+            diskImage.style.backgroundSize = "cover";
             masterSongName.innerText = songs[songIndex].songName;
+            diskName.innerText = songs[songIndex].songName;
             audioElemant.currentTime = 0;
             audioElemant.play(); 
             masterPlay.classList.remove("fa-play-circle");
@@ -96,6 +134,7 @@ Array.from(document.getElementsByClassName("songItem")).forEach(
         })
     }
 )
+
 
 document.getElementById('next').addEventListener('click',()=>{
     if (songIndex>=7){
@@ -111,10 +150,15 @@ document.getElementById('next').addEventListener('click',()=>{
             element.classList.add("fa-pause-circle");
         }
     })
-
+    hideContainer();
     audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
+    let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
+    diskImage.style.background = coverLocation;
+    diskImage.style.backgroundPosition = "center";
+    diskImage.style.backgroundSize = "cover";
     audioElemant.currentTime = 0;
     masterSongName.innerText = songs[songIndex].songName;
+    diskName.innerText = songs[songIndex].songName;
     audioElemant.play();
     masterPlay.classList.remove("fa-play-circle");
     masterPlay.classList.add("fa-pause-circle");
@@ -127,6 +171,7 @@ document.getElementById('previous').addEventListener('click',()=>{
     else{
         songIndex-=1;
     }
+    hideContainer();
     makeAllPlays()
     Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
         if (element.id==String(songIndex)){
@@ -135,7 +180,12 @@ document.getElementById('previous').addEventListener('click',()=>{
         }
     })
     audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
+    let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
+    diskImage.style.background = coverLocation;
+    diskImage.style.backgroundPosition = "center";
+    diskImage.style.backgroundSize = "cover";
     masterSongName.innerText = songs[songIndex].songName;
+    diskName.innerText = songs[songIndex].songName;
     audioElemant.currentTime = 0;
     audioElemant.play();
     masterPlay.classList.remove("fa-play-circle");
@@ -149,11 +199,16 @@ audioElemant.addEventListener('ended',()=>{
     else{
         songIndex+=1;
     }
-    makeAllPlays()
+    makeAllPlays();
     audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
     audioElemant.play();
     audioElemant.currentTime = 0;
     masterSongName.innerText = songs[songIndex].songName;
+    let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
+    diskImage.style.background = coverLocation;
+    diskImage.style.backgroundPosition = "center";
+    diskImage.style.backgroundSize = "cover";
+    diskName.innerText = songs[songIndex].songName;
     Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
         if (element.id==String(songIndex)){
             element.classList.remove("fa-play-circle");
