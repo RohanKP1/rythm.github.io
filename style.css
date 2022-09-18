@@ -45,10 +45,12 @@ nav ul li{
   font-size: 1.3rem;
   font-weight: normal;
 }
+
 #spin:after {
   content:"";
   animation: spin 30s linear infinite;
 }
+
 @keyframes spin {
   0% { content:"Never";}
   10% { content:"Gonna";}
@@ -61,6 +63,11 @@ nav ul li{
   80% { content: "You"; }
   90% { content: "Down"; }
 }
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
 
 .container{
     min-height: 100%;
@@ -154,6 +161,75 @@ nav ul li{
     position: absolute;
     left: 10vw;
     font-family: 'Varela Round', sans-serif;
+}
+
+.music-focus:before{
+    display: flex;
+    background-image: url(https://source.unsplash.com/random/?night);
+    height: 75vh;
+    width: 100vw;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    filter: blur(100px);
+    position: relative;
+}
+
+.focus-elements{
+    color: aliceblue;
+    font-size: larger;
+    z-index: 1;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.disk{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: url(/Assets/Images/1.jpg);
+    background-position: center;
+    background-size: cover;
+    border: #101010 2px solid;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: rotate 30s linear infinite;
+}
+
+.disk::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #101010;
+}
+
+.disk-name{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    top: 115%;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1000px) {
