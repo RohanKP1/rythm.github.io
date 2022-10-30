@@ -10,16 +10,13 @@ let songCounter = document.getElementById("songCounter");
 let salutation = document.getElementById("salutation");
 var currentHour = new Date().getHours();
 
-if (6 <= currentHour <= 12) {
+if (4 <= currentHour < 12) {
     salutation.innerText = "Good morning,";
-}
-if(12 < currentHour <=17){
+} if(12 <= currentHour < 17) {
     salutation.innerText = "Good afternoon,";
-}
-if (17 < currentHour <= 21) {
+} if (17 <= currentHour < 21) {
     salutation.innerText = "Good evening,";
-}
-else{
+} if (21 <= currentHour || 4 < currentHour ) {
     salutation.innerText = "Good night,";
 }
 
