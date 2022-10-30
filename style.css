@@ -239,10 +239,10 @@ nav ul li{
     .songInfo{
         display: grid;
         align-items: center;
-        background-color: #101010;
+        background-color: rgba(16, 16, 16, 0.0);
         color: white;
         position: absolute;
-        bottom: 7vh;
+        bottom: 8vh;
         left: 5vw;
     }
 
@@ -257,7 +257,7 @@ nav ul li{
 
     .bottom{
         position: fixed;
-        height: 13%;
+        height: 15vh;
         width: 96%;
         background-color: #101010;
         bottom: 0;
