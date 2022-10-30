@@ -12,6 +12,9 @@ body{
 nav{
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
+    border-radius: 8px;
+    width: 98%;
+    margin: 1%;
 }
 
 nav ul{
@@ -19,7 +22,7 @@ nav ul{
     align-items: center;
     list-style-type: none;
     height: 65px;
-    background-color: #101010;
+    background-color: rgba(16, 16, 16, 0.8);
     color: white;
 }
 
@@ -32,42 +35,13 @@ nav ul li{
 }
 
 .brand-logo img{
-    width: 44px;
+    width: 36px;
     padding: 8px 8px;   
 }
 
 #brand-name{
   color: #1bdbfc;
 }
-
-#spin {
-  color: white;
-  font-size: 1.3rem;
-  font-weight: normal;
-}
-
-#spin:after {
-  content:"";
-  animation: spin 30s linear infinite;
-}
-
-@keyframes spin {
-  0% { content:"Never";}
-  10% { content:"Gonna";}
-  20% { content:"Give";}
-  30% { content:"You";}
-  40% { content:"Up";}
-  50% { content: "Never"; }
-  60% { content: "Gonna"; }
-  70% { content: "Let"; }
-  80% { content: "You"; }
-  90% { content: "Down"; }
-}
-
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
 
 .container{
     min-height: 100%;
@@ -83,14 +57,17 @@ a:active { text-decoration: none; }
 .bottom{
     position: fixed;
     height: 130px;
-    width: 100%;
-    background-color: #101010;
+    width: 98%;
+    background-color: rgba(16, 16, 16, 0.8);
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     flex-direction: column;
+    border-radius: 8px;
+    border: #101010 solid 1px;
+    margin: 1%;
 }
 
 .icons{
@@ -101,17 +78,17 @@ a:active { text-decoration: none; }
     cursor: pointer;
 }
 
-.songList h1{
+.songList h2{
     margin-top: 15px;
-    margin-left: 6px;
+    margin-left: 12px;
     margin-bottom: 10px;
 }
 
 #myProgressBar{
-    width: 80vw;
+    width: 88vw;
     cursor: pointer;
-    height: 5px;
     accent-color: #1bdbfc;
+    height: 10px;
 }
 
 .songitemcontainer{
@@ -120,7 +97,7 @@ a:active { text-decoration: none; }
 } 
 
 .songItem{
-    background-color: #101010;
+    background-color: rgba(16,16,16,0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,9 +135,11 @@ a:active { text-decoration: none; }
 }
 
 .songInfo{
+    width: 98%;
     position: absolute;
-    left: 10vw;
+    left: 5vw;
     font-family: 'Varela Round', sans-serif;
+    background-color: rgba(16, 16, 16, 0.0);
 }
 
 .music-focus:before{
@@ -168,7 +147,7 @@ a:active { text-decoration: none; }
     background-image: url(https://source.unsplash.com/random/?night);
     height: 75vh;
     width: 100vw;
-    z-index: -1;
+    z-index: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -203,8 +182,7 @@ a:active { text-decoration: none; }
     background: url(/Assets/Images/1.jpg);
     background-position: center;
     background-size: cover;
-    border: #101010 2px solid;
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 10px rgba(16, 16, 16, 0.2);
     animation: rotate 30s linear infinite;
 }
 
@@ -232,7 +210,26 @@ a:active { text-decoration: none; }
     text-align: center;
 }
 
+#masterPlay{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#songCounter{
+    position: absolute;
+    right: 8vw;
+    background-color: rgba(16, 16, 16, 0.0);
+}
+
 @media only screen and (max-width: 1000px) {
+
+    .songItem{
+        background-color: #101010;
+    }
+
+    nav{
+        background-color: #101010;
+    }
 
     .songitemcontainer{
         display: grid;
@@ -240,18 +237,18 @@ a:active { text-decoration: none; }
     } 
 
     .songInfo{
-        margin: 10% 10%;
         display: grid;
         align-items: center;
-        width: auto;
         background-color: #101010;
         color: white;
-        font-family: 'Varela Round', sans-serif;
-        border-radius: 24px;
-        padding: 2px 12px;
         position: absolute;
-        left: auto;
-        bottom: 8vw;
+        bottom: 7vh;
+        left: 5vw;
+    }
+
+    #songCounter{
+        position: absolute;
+        right: 8vw;
     }
 
     .container{
@@ -260,8 +257,8 @@ a:active { text-decoration: none; }
 
     .bottom{
         position: fixed;
-        height: 130px;
-        width: 100%;
+        height: 13%;
+        width: 96%;
         background-color: #101010;
         bottom: 0;
         display: flex;
@@ -269,5 +266,16 @@ a:active { text-decoration: none; }
         justify-content: space-around;
         color: white;
         flex-direction: column;
+        border-radius: 8px;
+        margin: 2%;
+        border: #101010 solid 1px;
+    }
+
+    .icons{
+        margin-top: 12px;
+    }
+
+    #myProgressBar{
+        margin-top: 2px;
     }
 }    
