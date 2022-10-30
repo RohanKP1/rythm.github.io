@@ -9,6 +9,7 @@ let diskImage = document.getElementById("disk-image");
 let songCounter = document.getElementById("songCounter");
 let salutation = document.getElementById("salutation");
 var currentHour = new Date().getHours();
+let mainTitle = document.getElementById("mainTitle");
 
 if (4 <= currentHour < 12) {
     salutation.innerText = "Good morning,";
@@ -67,6 +68,7 @@ masterPlay.addEventListener("click", ()=>{
         masterSongName.innerText = formatSecondsAsTime(audioElemant.duration);
         masterPlay.classList.remove("fa-play-circle");
         masterPlay.classList.add("fa-pause-circle");
+        mainTitle.innerText = songs[songIndex].songName;
     }
     else{
         showContainer();
@@ -113,25 +115,6 @@ const showContainer = ()=>{
 
 showContainer();
 
-Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        songIndex = parseInt(e.target.id);
-        e.target.classList.remove("fa-play-circle");
-        e.target.classList.add("fa-pause-circle");
-        audioElemant.src = `Assets/Media/${songIndex+1}.mp3`;
-        let coverLocation = `url(Assets/Images/${songIndex+1}.jpg)`;
-        diskImage.style.background = coverLocation;
-        diskImage.style.backgroundPosition = "center";
-        diskImage.style.backgroundSize = "cover";
-        masterSongName.innerText = songs[songIndex].songName;
-        diskName.innerText = songs[songIndex].songName;
-        audioElemant.currentTime = 0;
-        audioElemant.play();
-        masterPlay.classList.remove("fa-play-circle");
-        masterPlay.classList.add("fa-pause-circle");
-    })
-})
-
 Array.from(document.getElementsByClassName("songItem")).forEach(
     (element)=>{
         element.addEventListener('click', ()=>{
@@ -149,6 +132,7 @@ Array.from(document.getElementsByClassName("songItem")).forEach(
             masterPlay.classList.remove("fa-play-circle");
             masterPlay.classList.add("fa-pause-circle");
             masterSongNameToDuration();
+            mainTitle.innerText = songs[songIndex].songName;
         })
     }
 )
@@ -173,6 +157,7 @@ document.getElementById('next').addEventListener('click',()=>{
     masterPlay.classList.remove("fa-play-circle");
     masterPlay.classList.add("fa-pause-circle");
     masterSongNameToDuration();
+    mainTitle.innerText = songs[songIndex].songName;
 })
 
 document.getElementById('previous').addEventListener('click',()=>{
@@ -195,6 +180,7 @@ document.getElementById('previous').addEventListener('click',()=>{
     masterPlay.classList.remove("fa-play-circle");
     masterPlay.classList.add("fa-pause-circle");
     masterSongNameToDuration();
+    mainTitle.innerText = songs[songIndex].songName;
 })
 
 audioElemant.addEventListener('ended',()=>{
@@ -213,4 +199,5 @@ audioElemant.addEventListener('ended',()=>{
     diskImage.style.backgroundPosition = "center";
     diskImage.style.backgroundSize = "cover";
     diskName.innerText = songs[songIndex].songName;
+    mainTitle.innerText = songs[songIndex].songName;
 })
