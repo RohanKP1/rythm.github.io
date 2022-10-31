@@ -15,9 +15,9 @@ if (4 <= currentHour < 12) {
     salutation.innerText = "Good morning,";
 } if(12 <= currentHour < 17) {
     salutation.innerText = "Good afternoon,";
-} if (17 <= currentHour < 21) {
+} if (17 <= currentHour < 20) {
     salutation.innerText = "Good evening,";
-} if (21 <= currentHour || 4 > currentHour ) {
+} if (20 <= currentHour || 4 > currentHour ) {
     salutation.innerText = "Good night,";
 }
 
