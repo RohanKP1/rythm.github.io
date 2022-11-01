@@ -11,14 +11,14 @@ let salutation = document.getElementById("salutation");
 var currentHour = new Date().getHours();
 let mainTitle = document.getElementById("mainTitle");
 
-if (4 <= currentHour < 12) {
-    salutation.innerText = "Good morning,";
-} if(12 <= currentHour < 17) {
-    salutation.innerText = "Good afternoon,";
-} if (17 <= currentHour < 20) {
-    salutation.innerText = "Good evening,";
-} if (20 <= currentHour || 4 > currentHour ) {
-    salutation.innerText = "Good night,";
+if (4 <= currentHour && currentHour < 12) { 
+     salutation.innerText = "Good morning,"; 
+} if(12 <= currentHour && currentHour < 17) { 
+     salutation.innerText = "Good afternoon,"; 
+} if (17 <= currentHour && currentHour < 20) { 
+     salutation.innerText = "Good evening,"; 
+} if (20 <= currentHour || currentHour < 4) { 
+     salutation.innerText = "Good night,"; 
 }
 
 let songs=[
