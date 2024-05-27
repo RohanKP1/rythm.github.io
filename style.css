@@ -144,7 +144,7 @@ nav ul li{
 
 .music-focus:before{
     display: flex;
-    background-image: url(https://source.unsplash.com/random/?night);
+    background-image: url(https://picsum.photos/1920/1080);
     height: 75vh;
     width: 100vw;
     z-index: 0;
